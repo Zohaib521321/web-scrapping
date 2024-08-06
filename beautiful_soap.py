@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import re
 url="https://webscraper.io/test-sites/e-commerce/allinone/computers"
 response=requests.get(url)
 # print(response.text)
@@ -21,3 +22,5 @@ print(findSoup.find("h4",{"class":"pull-right"}).string)
 findAllDescription=findSoup.find_all("p",class_="description")
 for i in findAllDescription:
     print(i.text)
+findspecificDesc=findSoup.find_all(string="$1199")
+print("Specific desc are " + str(findspecificDesc))    
