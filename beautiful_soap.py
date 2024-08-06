@@ -11,6 +11,13 @@ findUrl="https://webscraper.io/test-sites/e-commerce/allinone/computers/tablets"
 findResponse=requests.get(findUrl)
 findSoup=BeautifulSoup(response.text,"html.parser")
 description=findSoup.find("p",class_="description")
-print(description.string)
+print(description)
 
 print(findSoup.find("h4",{"class":"pull-right"}).string)
+
+
+# Find all 
+
+findAllDescription=findSoup.find_all("p",class_="description")
+for i in findAllDescription:
+    print(i.text)
