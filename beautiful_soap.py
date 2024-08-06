@@ -4,4 +4,13 @@ url="https://webscraper.io/test-sites/e-commerce/allinone/computers"
 response=requests.get(url)
 # print(response.text)
 soap=BeautifulSoup(response.text,"html.parser")
-print(soap.div.h1)
+# print(soap.div.h1)
+# Find Url test
+
+findUrl="https://webscraper.io/test-sites/e-commerce/allinone/computers/tablets"
+findResponse=requests.get(findUrl)
+findSoup=BeautifulSoup(response.text,"html.parser")
+description=findSoup.find("p",class_="description")
+print(description.string)
+
+print(findSoup.find("h4",{"class":"pull-right"}).string)
