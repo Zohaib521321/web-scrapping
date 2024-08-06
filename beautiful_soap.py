@@ -22,5 +22,9 @@ print(findSoup.find("h4",{"class":"pull-right"}).string)
 findAllDescription=findSoup.find_all("p",class_="description")
 for i in findAllDescription:
     print(i.text)
-findspecificDesc=findSoup.find_all(string="$1199")
-print("Specific desc are " + str(findspecificDesc))    
+findspecificDesc=findSoup.find_all(string="$96.99")
+print("Specific desc are " + str(findspecificDesc)) 
+
+# Regex in findall
+allTags=findSoup.find_all(string=re.compile("Lenovo"))
+print(allTags)
